@@ -2,7 +2,7 @@ package modelo;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Igredientes {
+public class Ingredientes {
 
 	// Variávei de Ambiente
 	private Integer id;
@@ -10,7 +10,7 @@ public class Igredientes {
 	private String creation;
 	
 	// Construtor
-	public Igredientes(Integer id, String nome) {
+	public Ingredientes(Integer id, String nome) {
 		this.id = id;
 		this.nome = nome;
 		this.creation = new SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(new Date());

@@ -15,12 +15,12 @@
   </servlet-mapping>
   
   <servlet>
-  	<servlet-name>cadastrarigredientes</servlet-name>
- 	<servlet-class>cadastrarigredientes.html</servlet-class>
+  	<servlet-name>cadastraringredientes</servlet-name>
+ 	<servlet-class>cadastraringredientes.html</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>cadastrarigredientes</servlet-name>
-  	<url-pattern>/home/cadastrarigredientes</url-pattern>
+  	<servlet-name>cadastraringredientes</servlet-name>
+  	<url-pattern>/home/cadastraringredientes</url-pattern>
   </servlet-mapping>
   
   <servlet>
@@ -29,9 +29,6 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>rest</servlet-name>
-  	<url-pattern>/rest</url-pattern>
+  	<url-pattern>/cadastraringredientes/rest</url-pattern>
   </servlet-mapping>
-  
-  
-  
 </web-app>

@@ -3,11 +3,11 @@ $(document).ready(function () {
   var $formGroups = $('div.form-group');
   var $helpBlocks = $('span.help-block');
   var $nomeInput = $('#nome-input');
-  var $tabelaIgredientes = $('#tabela-igrediente')
+  var $tabelaIngredientes = $('#tabela-ingrediente')
   quantidade = 1;
 	  
   $formWell.hide();
-  $('#botao-novo-igrediente').click(function () {
+  $('#botao-novo-ingrediente').click(function () {
     $formWell.slideToggle();
   });
 
@@ -16,37 +16,37 @@ $(document).ready(function () {
     $helpBlocks.text('');
   }
 
-  $.get('http://localhost:8080/igredientes/rest',function(igredientes){
-    console.log(igredientes);
+  $.get('http://localhost:8080/cadastraringredientes/rest',function(ingredientes){
+    console.log(ingredientes);
   },'json');
 
-  function adicionarIgrediente(igrediente) {
+  function adicionarIngrediente(ingrediente) {
     var linha = '<tr>';
-    linha += '<td>' + igrediente.id + '</td>';
-    linha += '<td>' + igrediente.creation + '</td>';
-    linha += '<td>' + igrediente.nome + '</td>';
+    linha += '<td>' + ingrediente.id + '</td>';
+    linha += '<td>' + ingrediente.creation + '</td>';
+    linha += '<td>' + ingrediente.nome + '</td>';
     linha += '<td>';
     linha += '<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>';
     linha += '</td ></tr>';
 
     var $linhaObjeto = $(linha);
     var $botao = $linhaObjeto.find('button.btn').click(function () {
-      console.log(igrediente.id);
+      console.log(ingrediente.id);
       $linhaObjeto.remove();
     });
     
-    $tabelaIgredientes.append($linhaObjeto);
+    $tabelaIngredientes.append($linhaObjeto);
     quantidade = quantidade + 1;
   }
 
-  function listarIgredientes(igredientes){
-    $.each(igredientes, function(i, igrediente){
-      adicionarIgrediente(igrediente);
+  function listarIngredientes(ingredientes){
+    $.each(ingredientes, function(i, ingrediente){
+      adicionarIngrediente(ingrediente);
     })
   }
 
-  var igredientesFake=[{"id": 00000000000000001, "nome": "Arroz", "creation": "09/08/2015 16:44:20"}, {"id": 00000000000000002, "nome": "Farinha", "creation": "09/08/2015 17:29:42"}, {"id": 00000000000000003, "nome": "Sal", "creation": "09/09/2015 09:12:05"}];
-  listarIgredientes(igredientesFake);
+  var ingredientesFake=[{"id": 00000000000000001, "nome": "Arroz", "creation": "09/08/2015 16:44:20"}, {"id": 00000000000000002, "nome": "Farinha", "creation": "09/08/2015 17:29:42"}, {"id": 00000000000000003, "nome": "Sal", "creation": "09/09/2015 09:12:05"}];
+  listarIngredientes(ingredientesFake);
 
   function mostrarErros(erros) {
     var helpBlockPrefixo = '#help-block-';
@@ -57,7 +57,7 @@ $(document).ready(function () {
     });
   }
 
-  $('#form-igrediente').submit(function (evento) {
+  $('#form-ingrediente').submit(function (evento) {
     evento.preventDefault();
     limparErros();
     var nome = $nomeInput.val();
@@ -71,7 +71,7 @@ $(document).ready(function () {
     if (nome === '') {
       mostrarErros({'nome': 'Campo Obrigatório'})
     } else {
-      adicionarIgrediente({"id": quantidade,
+      adicionarIngrediente({"id": quantidade,
         "nome": nome,
         "creation": dataHora});
       $nomeInput.val('');

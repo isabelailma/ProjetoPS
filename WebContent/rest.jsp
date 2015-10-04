@@ -1,5 +1,6 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="modelo.ObjectToJSON"%>
-<%@page import="modelo.Igredientes"%>
+<%@page import="modelo.Ingredientes"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,10 +12,14 @@
 <body>
 
 	<jsp:scriptlet>
+	
+		ArrayList listaIngredientes = new ArrayList();
+		listaIngredientes.add(new Ingredientes(000001, "Arroz"));
+		listaIngredientes.add(new Ingredientes(000002, "Feijão"));
+		listaIngredientes.add(new Ingredientes(000003, "Açucar"));
+		listaIngredientes.add(new Ingredientes(000004, "Sal"));
 		
-		Igredientes igredientes = new Igredientes(000001, "Arroz");
-		
-		String json = ObjectToJSON.convertToJSON(igredientes);
+		String json = ObjectToJSON.convertToJSON(listaIngredientes);
 	</jsp:scriptlet>
 	<jsp:expression>
 		
