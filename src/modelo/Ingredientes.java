@@ -16,6 +16,13 @@ public class Ingredientes {
 		this.creation = new SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(new Date());
 	}
 	
+	public Ingredientes(String nome) {
+		//Gerar ID
+		this.id = GerarID.gerarID();
+		this.nome = nome;
+		this.creation = new SimpleDateFormat("dd/M/yyyy hh:mm:ss").format(new Date());
+	}
+	
 	// Getters and Setters
 	public Integer getId() {
 		return id;
