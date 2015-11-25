@@ -4,23 +4,20 @@
   <welcome-file-list>
     <welcome-file>home.html</welcome-file>
   </welcome-file-list>
-  
   <servlet>
-  	<servlet-name>home</servlet-name>
- 	<servlet-class>home.html</servlet-class>
+    <servlet-name>home</servlet-name>
+    <servlet-class>home.html</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>home</servlet-name>
-  	<url-pattern>/home</url-pattern>
+    <servlet-name>home</servlet-name>
+    <url-pattern>/home</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name>cadastraringredientes</servlet-name>
- 	<servlet-class>cadastraringredientes.html</servlet-class>
+    <servlet-name>cadastraringredientes</servlet-name>
+    <servlet-class>cadastraringredientes.html</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>cadastraringredientes</servlet-name>
-  	<url-pattern>/home/cadastraringredientes</url-pattern>
+    <servlet-name>cadastraringredientes</servlet-name>
+    <url-pattern>/home/cadastraringredientes</url-pattern>
   </servlet-mapping>
-  
 </web-app>

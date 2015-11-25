@@ -1,0 +1,17 @@
+<div>
+  <div class="well">
+    <h1 class="text-center">Categoria Form </h1>
+
+    <form role="form" ng-submit="salvar()">
+      <fieldset ng-disabled="salvandoIngredienteFlag">
+        <div class="form-group" ng-class="{'has-error':erros.nome}">
+          <label for="nomeInput" class="control-label">Nome </label>
+          <input id="nomeInput" type="text" class="form-control" ng-model="ingrediente.nome">
+          <span class="help-block">{{erros.nome}}</span></div>
+
+        <button type="submit" class="btn btn-success">Save</button>
+        <img src="images/ajax-loader.gif" ng-show="salvandoIngredienteFlag"/>
+      </fieldset>
+    </form>
+  </div>
+</div>

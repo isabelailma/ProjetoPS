@@ -4,7 +4,7 @@ import java.util.List;
 
 public class ValidarInformacao {
     public static boolean validar(String parameter) {
-        if (parameter != null && !parameter.isEmpty()) {
+        if (parameter != null && !parameter.isEmpty() && parameter != "{}") {
             return true;
         }
         return false;

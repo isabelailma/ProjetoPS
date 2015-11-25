@@ -5,7 +5,7 @@ import java.util.List;
 
 public class DataBase {
     private static DataBase ourInstance = new DataBase();
-    private List<Object> listaIngredientes;
+    private List<Ingredientes> listaIngredientes;
 
     public static DataBase getInstance() {
         return ourInstance;
@@ -40,7 +40,7 @@ public class DataBase {
 
     public Ingredientes searchIngredientes(Integer id) {
         Ingredientes result = null;
-        for (Object Ingredientes : listaIngredientes) {
+        for (Ingredientes Ingredientes : listaIngredientes) {
             if (((modelo.Ingredientes) Ingredientes).getId().equals(id)) {
                 result = (modelo.Ingredientes) Ingredientes;
             }
@@ -48,9 +48,9 @@ public class DataBase {
         return result;
     }
 
-    public List<Object> searchIngredientes(String nome) {
-        List<Object> result = new ArrayList<>();
-        for (Object Ingredientes : listaIngredientes) {
+    public List<Ingredientes> searchIngredientes(String nome) {
+        List<Ingredientes> result = new ArrayList<>();
+        for (Ingredientes Ingredientes : listaIngredientes) {
             if (((modelo.Ingredientes) Ingredientes).getNome().equals(nome)) {
                 result.add(Ingredientes);
             }
@@ -58,9 +58,17 @@ public class DataBase {
         return result;
     }
 
-    public List<Object> getListaIngredientes() {
+    public List<Ingredientes> getListaIngredientes() {
         return listaIngredientes;
     }
 
     public int getListaIngredientesSize(){return listaIngredientes.size();}
+    
+    public void updateIngrediente(Ingredientes ingrediente) {
+        for (int i = 0; i < listaIngredientes.size(); i++) {
+            if (listaIngredientes.get(i).getId().equals(ingrediente.getId())) {
+            	listaIngredientes.set(i, ingrediente);
+            }
+        }
+    }   
 }

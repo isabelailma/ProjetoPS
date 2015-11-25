@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @WebServlet("/rest")
 public class ServletRestore extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	
 	private final static int DELAY = 2000;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,10 +22,10 @@ public class ServletRestore extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {Thread.sleep(DELAY);} catch (InterruptedException e) {e.printStackTrace();}
-        String json = new Gson().toJson(DataBase.getInstance().getListaIngredientes());
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(json);
+        try {Thread.sleep(DELAY);} catch (InterruptedException e) {e.printStackTrace();} 
+        	String json = new Gson().toJson(DataBase.getInstance().getListaIngredientes());
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(json);
     }
 }

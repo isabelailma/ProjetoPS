@@ -1,0 +1,24 @@
+<tr>
+  <td>
+    <button class="btn btn-primary btn-sm" ng-click="editarToggle()"><i class="glyphicon glyphicon-pencil"></i></button>
+
+  </td>
+  <td>
+    <span ng-hide="editandoFlag">{{ingrediente.nome}}</span>
+
+    <form ng-submit="editar()">
+    <span class="input-group" style="width: 300px;" ng-show="editandoFlag">
+      <input type="text" class="form-control" ng-model="ingredienteParaEdicao.nome">
+      <span class="input-group-btn">
+        <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-save"></i></button>
+      </span>
+    </span>
+    </form>
+  </td>
+  <td>{{ingrediente.id}}</td>
+  <td>{{ingredinete.nome}}</td>
+  <td>{{ingrediente.creation}}</td>
+  <td>
+    <button class="btn btn-danger btn-sm" ng-click="deletar()"><i class="glyphicon glyphicon-trash"></i></button>
+  </td>
+</tr>

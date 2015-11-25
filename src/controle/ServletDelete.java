@@ -1,31 +1,35 @@
 package controle;
 
-import modelo.DataBase;
-import modelo.ValidarInformacao;
+import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+
+import com.google.gson.Gson;
+
+import modelo.DataBase;
+import modelo.Ingredientes;
+import modelo.ObjectToJSON;
+import modelo.ValidarInformacao;
 
 @WebServlet("/delete")
 public class ServletDelete extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	
 	private final static int DELAY = 1000;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {Thread.sleep(DELAY);} catch (InterruptedException e) {e.printStackTrace();}
-        String requestId = request.getParameter("id");
-        if (ValidarInformacao.validarNumber(requestId)) {
-            Integer id = Integer.parseInt(requestId);
+        String json = ObjectToJSON.requestJson(request);
+        Integer id = new Gson().fromJson(json, Ingredientes.class).getId();
+        
+        if (ValidarInformacao.validar(id)) {
             /*Removendo do Servidor*/
-            DataBase.getInstance().removeIngredientes(id);;
-            String json = "{ \"success\": true }";
-            response.getWriter().write(json);
-
+            DataBase.getInstance().removeIngredientes(id);
+            Callback.onSuccess(response);
         } else {
-            errorResponse(response, "{\"nome\": \"Error to get Id\"}");
+        	Callback.onError(response);
         }
     }
 
